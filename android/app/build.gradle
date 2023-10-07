@@ -28,6 +28,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion 33
 
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -51,6 +52,19 @@ flutter {
     source '../..'
 }
 
+
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+buildscript {
+    ext.kotlin_version = '1.6.0' // Check for the latest Kotlin version
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.0' // Check for the latest AGP version
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
